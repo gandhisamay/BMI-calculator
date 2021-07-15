@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'customcard.dart';
+import 'cardChild.dart';
 
 const Color colorCustomCard = Color(0xFF1D1E33);
 
@@ -23,28 +24,30 @@ class _InputPageState extends State<InputPage> {
               children: [
                 CustomCard(
                   colorCustomCard,
+                  CardChild("MALE"),
                 ),
                 CustomCard(
                   colorCustomCard,
+                  CardChild("FEMALE"),
                 ),
               ],
             ),
           ),
-          CustomCard(
-            colorCustomCard,
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                CustomCard(
-                  colorCustomCard,
-                ),
-                CustomCard(
-                  colorCustomCard,
-                ),
-              ],
-            ),
-          ),
+          // CustomCard(
+          //   colorCustomCard,
+          // ),
+          // Expanded(
+          //   child: Row(
+          //     children: [
+          //       CustomCard(
+          //         colorCustomCard,
+          //       ),
+          //       CustomCard(
+          //         colorCustomCard,
+          //       ),
+          //     ],
+          //   ),
+          // ),
           Container(
             color: Color(0xFFEB1555),
             height: 50,
