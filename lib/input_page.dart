@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'customcard.dart';
+import 'iconContent.dart';
 
 const Color colorCustomCard = Color(0xFF1D1E33);
 const Color inactiveColorCard = Color(0xFF111328);
@@ -13,6 +14,9 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender = Gender.initial;
+  int height = 180;
+  int age = 30;
+  int weight = 50;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +25,7 @@ class _InputPageState extends State<InputPage> {
         centerTitle: true,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Row(
@@ -33,27 +38,12 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     child: CustomCard(
-                      colour: selectedGender == Gender.initial? inactiveColorCard: selectedGender == Gender.male? colorCustomCard: inactiveColorCard,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.male,
-                            size: 80,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            'MALE',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ],
-                      ),
+                      colour: selectedGender == Gender.initial
+                          ? inactiveColorCard
+                          : selectedGender == Gender.male
+                              ? colorCustomCard
+                              : inactiveColorCard,
+                      child: IconContent(Gender.male),
                     ),
                   ),
                 ),
@@ -65,27 +55,12 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     child: CustomCard(
-                      colour: selectedGender == Gender.initial? inactiveColorCard: selectedGender == Gender.female? colorCustomCard: inactiveColorCard,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.female,
-                            size: 80,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            'FEMALE',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ],
-                      ),
+                      colour: selectedGender == Gender.initial
+                          ? inactiveColorCard
+                          : selectedGender == Gender.female
+                              ? colorCustomCard
+                              : inactiveColorCard,
+                      child: IconContent(Gender.female),
                     ),
                   ),
                 ),
@@ -96,7 +71,38 @@ class _InputPageState extends State<InputPage> {
             child: GestureDetector(
               child: CustomCard(
                 colour: colorCustomCard,
-                child: Text(''),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'HEIGHT',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Text(
+                      '${height}cm',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w900,
+                        fontSize: 45,
+                      ),
+                    ),
+                    Slider(
+                      value: height.toDouble(),
+                      max: 220.0,
+                      min: 120.0,
+                      activeColor: Colors.white,
+                      inactiveColor: Colors.grey,
+                      onChanged: (newValue) {
+                        setState(() {
+                          height = newValue.round();
+                        });
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -105,11 +111,51 @@ class _InputPageState extends State<InputPage> {
               children: [
                 CustomCard(
                   colour: colorCustomCard,
-                  child: Text(''),
+                  child: Column(
+                    children: [
+                      Text(
+                        'WEIGHT',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 18,
+                        ),
+                      ),
+                      Text(
+                        '$weight',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w900,
+                          fontSize: 45,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 CustomCard(
                   colour: colorCustomCard,
-                  child: Text(''),
+                  child: Column(
+                    children: [
+                      Text(
+                        'HEIGHT',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 18,
+                        ),
+                      ),
+                      Text(
+                        '$age',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w900,
+                          fontSize: 45,
+                        ),
+                      ),
+                      Row(
+                        children: [  
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),
