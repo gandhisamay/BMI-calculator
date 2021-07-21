@@ -11,13 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         '/': (context) {
           return InputPage();
         },
         '/first': (context) {
-          return ResultPage(calc);
+          return ResultPage();
         }
       },
       title: 'BMI Calculator',

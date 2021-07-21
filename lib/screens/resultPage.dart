@@ -59,7 +59,11 @@ class _ResultPageState extends State<ResultPage> {
                     ),
                     Text(
                       '${args.interpretation}',
-                      style: TextStyle(color: Colors.white, fontSize: 25.0),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25.0,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),
