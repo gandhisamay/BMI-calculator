@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/roundIconButton.dart';
 import 'package:flutter/material.dart';
 import 'customcard.dart';
 import 'iconContent.dart';
@@ -89,17 +90,27 @@ class _InputPageState extends State<InputPage> {
                         fontSize: 45,
                       ),
                     ),
-                    Slider(
-                      value: height.toDouble(),
-                      max: 220.0,
-                      min: 120.0,
-                      activeColor: Colors.white,
-                      inactiveColor: Colors.grey,
-                      onChanged: (newValue) {
-                        setState(() {
-                          height = newValue.round();
-                        });
-                      },
+                    SliderTheme(
+                      data: SliderThemeData(
+                        activeTrackColor: Colors.white,
+                        inactiveTrackColor: Colors.grey,
+                        thumbColor: Color(0xFFEB1555),
+                        overlayColor: Color(0x15EB1555),
+                        thumbShape:
+                            RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                        overlayShape:
+                            RoundSliderOverlayShape(overlayRadius: 30.0),
+                      ),
+                      child: Slider(
+                        value: height.toDouble(),
+                        max: 220.0,
+                        min: 120.0,
+                        onChanged: (newValue) {
+                          setState(() {
+                            height = newValue.round();
+                          });
+                        },
+                      ),
                     ),
                   ],
                 ),
@@ -109,52 +120,86 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(
               children: [
-                CustomCard(
-                  colour: colorCustomCard,
-                  child: Column(
-                    children: [
-                      Text(
-                        'WEIGHT',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 18,
+                Expanded(
+                  child: CustomCard(
+                    colour: colorCustomCard,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'WEIGHT',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 18,
+                          ),
                         ),
-                      ),
-                      Text(
-                        '$weight',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w900,
-                          fontSize: 45,
+                        Text(
+                          '$weight',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w900,
+                            fontSize: 45,
+                          ),
                         ),
-                      ),
-                    ],
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: Icons.add,
+                              buttonColor: Colors.white,
+                            ),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            RoundIconButton(
+                              icon: Icons.remove,
+                              buttonColor: Colors.white,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                CustomCard(
-                  colour: colorCustomCard,
-                  child: Column(
-                    children: [
-                      Text(
-                        'HEIGHT',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 18,
+                Expanded(
+                  child: CustomCard(
+                    colour: colorCustomCard,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'AGE',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 18,
+                          ),
                         ),
-                      ),
-                      Text(
-                        '$age',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w900,
-                          fontSize: 45,
+                        Text(
+                          '$age',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w900,
+                            fontSize: 45,
+                          ),
                         ),
-                      ),
-                      Row(
-                        children: [  
-                        ],
-                      )
-                    ],
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: Icons.add,
+                              buttonColor: Colors.white,
+                            ),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            RoundIconButton(
+                              icon: Icons.remove,
+                              buttonColor: Colors.white,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
