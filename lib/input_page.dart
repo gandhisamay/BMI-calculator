@@ -147,6 +147,11 @@ class _InputPageState extends State<InputPage> {
                             RoundIconButton(
                               icon: Icons.add,
                               buttonColor: Colors.white,
+                              onPressed: () {
+                                  setState(() {
+                                    weight += 1;
+                                  });
+                              },
                             ),
                             SizedBox(
                               width: 20.0,
@@ -154,6 +159,13 @@ class _InputPageState extends State<InputPage> {
                             RoundIconButton(
                               icon: Icons.remove,
                               buttonColor: Colors.white,
+                              onPressed: () {
+                                if (weight - 1 >= 1) {
+                                  setState(() {
+                                    weight -= 1;
+                                  });
+                                }
+                              },
                             ),
                           ],
                         ),
@@ -188,6 +200,11 @@ class _InputPageState extends State<InputPage> {
                             RoundIconButton(
                               icon: Icons.add,
                               buttonColor: Colors.white,
+                              onPressed: () { 
+                                  setState(() {
+                                    age += 1;
+                                  });
+                              },
                             ),
                             SizedBox(
                               width: 20.0,
@@ -195,6 +212,13 @@ class _InputPageState extends State<InputPage> {
                             RoundIconButton(
                               icon: Icons.remove,
                               buttonColor: Colors.white,
+                              onPressed: () {
+                                if (age - 1 >= 1) {
+                                  setState(() {
+                                    age -= 1;
+                                  });
+                                }
+                              },
                             ),
                           ],
                         ),
