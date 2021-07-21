@@ -1,6 +1,6 @@
 # BMI Calculator
 
-A flutter app to calculate your body mass index
+A flutter app to calculate your body mass index.
 
 ## UI
 <p float="left">
@@ -17,5 +17,11 @@ flutter run
 ```
 2)Download the release apk from [here](https://drive.google.com/file/d/1lJ632-vzrFTVgQ_VpBd7upTgSN4j5u_B/view?usp=sharing) and install it on your device.
 
-## License
-Free to download and use software for everyone.
+This release is a combined apk for
+```
+app-armeabi-v7a-release.apk
+app-arm64-v8a-release.apk
+app-x86_64-release.apk
+```
+
+Made with 💖 [Samay Gandhi](https://github.com/gandhisamay)
