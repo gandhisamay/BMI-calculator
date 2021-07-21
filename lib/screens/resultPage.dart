@@ -1,7 +1,8 @@
-import 'customcard.dart';
-import 'constants.dart';
+import 'package:bmi_calculator/screen_arguments.dart';
+import '../components/customcard.dart';
+import '../constants.dart';
 import 'package:flutter/material.dart';
-import 'bottom_button.dart';
+import '../components/bottom_button.dart';
 
 class ResultPage extends StatefulWidget {
   @override
@@ -11,6 +12,7 @@ class ResultPage extends StatefulWidget {
 class _ResultPageState extends State<ResultPage> {
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
@@ -42,21 +44,21 @@ class _ResultPageState extends State<ResultPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'OVERWEIGHT',
+                      '${args.result}',
                       style: TextStyle(
                         color: Colors.green,
                         fontSize: 25.0,
                       ),
                     ),
                     Text(
-                      '18.3',
+                      '${args.bmi}',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 80.0,
                           fontWeight: FontWeight.w900),
                     ),
                     Text(
-                      'You are overweight',
+                      '${args.interpretation}',
                       style: TextStyle(color: Colors.white, fontSize: 25.0),
                     ),
                   ],
