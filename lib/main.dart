@@ -1,3 +1,4 @@
+import 'resultPage.dart';
 import 'package:flutter/material.dart';
 import 'input_page.dart';
 
@@ -10,6 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/' ,
+      routes: {
+        '/': (context) {
+          return InputPage();
+        },
+        '/first': (context) {
+          return ResultPage();
+        }
+      },
       title: 'BMI Calculator',
       theme: ThemeData(
         primaryColor: Color(0xFF0A0E21),
@@ -21,7 +31,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: InputPage(),
     );
   }
 }

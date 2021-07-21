@@ -1,10 +1,11 @@
-import 'package:bmi_calculator/roundIconButton.dart';
+import 'package:bmi_calculator/bottom_button.dart';
+import 'package:bmi_calculator/resultPage.dart';
+
+import 'roundIconButton.dart';
 import 'package:flutter/material.dart';
 import 'customcard.dart';
 import 'iconContent.dart';
-
-const Color colorCustomCard = Color(0xFF1D1E33);
-const Color inactiveColorCard = Color(0xFF111328);
+import 'constants.dart';
 
 enum Gender { male, female, initial }
 
@@ -148,9 +149,9 @@ class _InputPageState extends State<InputPage> {
                               icon: Icons.add,
                               buttonColor: Colors.white,
                               onPressed: () {
-                                  setState(() {
-                                    weight += 1;
-                                  });
+                                setState(() {
+                                  weight += 1;
+                                });
                               },
                             ),
                             SizedBox(
@@ -200,10 +201,10 @@ class _InputPageState extends State<InputPage> {
                             RoundIconButton(
                               icon: Icons.add,
                               buttonColor: Colors.white,
-                              onPressed: () { 
-                                  setState(() {
-                                    age += 1;
-                                  });
+                              onPressed: () {
+                                setState(() {
+                                  age += 1;
+                                });
                               },
                             ),
                             SizedBox(
@@ -229,18 +230,11 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: Color(0xFFEB1555),
-            height: 50,
-            width: double.infinity,
-            child: Center(
-              child: Text(
-                'Calculate BMI',
-                style: TextStyle(
-                  fontSize: 20,
-                ),
-              ),
-            ),
+          BottomButton(
+            onTap: () {
+              Navigator.pushNamed(context, '/first');
+            },
+            text: 'CALCULATE',
           ),
         ],
       ),
